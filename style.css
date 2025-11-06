@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background-color: #f3f4f6;
+    color: #111827;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 28rem;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #818cf8;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+/* Переключатели */
+.toggle-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.toggle-section:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.toggle-label {
+    font-weight: 600;
+}
+
+.toggle-label.active {
+    color: #818cf8;
+}
+
+.toggle-label.inactive {
+    color: #9ca3af;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 3.5rem;
+    height: 2rem;
+    appearance: none;
+    background-color: #d1d5db;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-switch:checked {
+    background-color: #818cf8;
+}
+
+.toggle-switch::before {
+    content: '';
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: white;
+    border-radius: 50%;
+    top: 0.25rem;
+    left: 0.25rem;
+    transition: transform 0.3s;
+}
+
+.toggle-switch:checked::before {
+    transform: translateX(1.5rem);
+}
+
+/* Карточки */
+.card-container {
+    width: 100%;
+    height: 20rem;
+    margin-bottom: 1.5rem;
+    perspective: 1000px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card.is-flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.kanji {
+    font-size: 6rem;
+    font-weight: 700;
+}
+
+.section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #818cf8;
+    margin-bottom: 1rem;
+}
+
+.meaning {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.readings {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    text-align: left;
+    padding: 0 0.5rem;
+}
+
+.reading-label {
+    font-weight: 500;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.reading-value {
+    font-size: 1.25rem;
+}
+
+.example {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+}
+
+.example-russian {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.progress {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 1rem;
+    height: 1.25rem;
+}
+
+/* Квиз */
+.quiz-container {
+    background-color: white;
+    width: 100%;
+    height: 20rem;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.score {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 1rem;
+}
+
+.quiz-content {
+    width: 100%;
+    text-align: center;
+}
+
+.quiz-word {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.quiz-options {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.quiz-option {
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+    background-color: #e5e7eb;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quiz-option:hover {
+    background-color: #d1d5db;
+}
+
+.quiz-option.correct {
+    background-color: #10B981;
+    border-color: #059669;
+    color: white;
+}
+
+.quiz-option.incorrect {
+    background-color: #EF4444;
+    border-color: #DC2626;
+    color: white;
+}
+
+.final {
+    text-align: center;
+}
+
+.final h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #818cf8;
+}
+
+.final-score {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Кнопки */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-prev {
+    background-color: #e5e7eb;
+    color: #111827;
+}
+
+.btn-prev:hover {
+    background-color: #d1d5db;
+}
+
+.btn-next {
+    background-color: #818cf8;
+    color: white;
+}
+
+.btn-next:hover {
+    background-color: #737ede;
+}
+
+.hidden {
+    display: none;
+}
